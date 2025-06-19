@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Get staged files
+stagedFiles=$(git diff --staged --name-only)
+
+# Create a temporary stash
+echo "Temporary saving unstaged modifications..."
+git stash push -k -m "pre-commit-hook-temp-stash" --quiet
+
+# Running spotless on staged files only
+echo "Running spotless:apply. Formatting code..."
+./mvnw spotless:apply
+
+# Check if spotless succeeded
+if [ $? -ne 0]; then
+  echo "Error: spotless:apply failed"
+  git stash pop --quiet
+  exit 1
+fi
+
+# Re-stage formatted files
+for files in $stagedFiles; do
+  if test -f "$file"; then
+    git add "$file"
+  fi
+done
+
+# Restore unstaged modifications
+if git stash list | grep -q "pre-commit-hook-temp-stash"; then
+    echo "Restoring unstaged modifications..."
+    git stash pop --quiet
+fi
+
+echo "✓ Formatting done"

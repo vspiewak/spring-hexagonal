@@ -1,0 +1,35 @@
+openapi: 3.0.3
+info:
+  title: Swagger - OpenAPI 3.0
+  version: 0.0.1
+
+paths:
+  /users/{id}:
+    get:
+      tags:
+        - user
+      summary: Get user by id
+      operationId: getUserById
+      parameters:
+        - name: id
+          required: true
+          in: path
+          description: the user id
+          schema: 
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: New response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+
+components:
+  schemas:
+    UserResponse:
+      type: object
+      properties:
+        username:
+          type: string

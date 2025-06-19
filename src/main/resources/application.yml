@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: stamped
+  mvc:
+    problemdetails:
+      enabled: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/stamped
+    username: postgres
+    password: postgres
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+management:
+  endpoints:
+    web:
+      exposure.include: '*'
+
+logging:
+  level:
+    root: INFO
+    com.vspiewak.stamped: DEBUG
+    org.springframework.web: DEBUG
