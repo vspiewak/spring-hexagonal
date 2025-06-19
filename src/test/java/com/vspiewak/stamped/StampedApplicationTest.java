@@ -17,12 +17,12 @@ import com.vspiewak.stamped.runtime.StampedApplication;
 @Import(TestcontainersConfiguration.class)
 @SpringBootTest(classes = StampedApplication.class)
 @EnableJpaRepositories(basePackageClasses = StampedApplication.class)
-class StampedApplicationTests {
+class StampedApplicationTest {
 
   @Autowired private UserRepository userRepository;
 
   @AfterEach
-  public void afterEach() {
+  void afterEach() {
     userRepository.deleteAll();
   }
 
@@ -37,7 +37,7 @@ class StampedApplicationTests {
   }
 
   @Test
-  void canSaveUser() {
+  void canFindUserById() {
 
     var expected = new UserEntity();
     expected.setUsername("test");
