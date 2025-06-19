@@ -8,16 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.vspiewak.stamped.infrastructure.db.entity.UserEntity;
 import com.vspiewak.stamped.infrastructure.db.repository.UserRepository;
-import com.vspiewak.stamped.runtime.StampedApplication;
+import com.vspiewak.stamped.runtime.Application;
 
 @Import(TestcontainersConfiguration.class)
-@SpringBootTest(classes = StampedApplication.class)
-@EnableJpaRepositories(basePackageClasses = StampedApplication.class)
-class StampedApplicationTest {
+@SpringBootTest(classes = Application.class)
+class ApplicationTest {
 
   @Autowired private UserRepository userRepository;
 
@@ -27,28 +25,28 @@ class StampedApplicationTest {
   }
 
   @Test
-  void contextLoads(ApplicationContext context) {
+  void shouldLoadContext(ApplicationContext context) {
     assertThat(context).isNotNull();
   }
 
   @Test
-  void jpaLoad() {
+  void shouldLoadJpa() {
     assertThat(userRepository).isNotNull();
   }
 
   @Test
-  void canFindUserById() {
+  void shouldFindById() {
 
-    var expected = new UserEntity();
-    expected.setUsername("test");
+    var user = new UserEntity();
+    user.setUsername("test");
 
-    var saved = userRepository.save(expected);
+    var saved = userRepository.save(user);
     assertThat(saved).isNotNull();
 
     var actual = userRepository.findById(saved.getId());
     assertThat(actual)
         .isPresent()
         .get()
-        .hasFieldOrPropertyWithValue("username", expected.getUsername());
+        .hasFieldOrPropertyWithValue("username", user.getUsername());
   }
 }

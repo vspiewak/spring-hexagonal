@@ -14,9 +14,9 @@ import com.vspiewak.stamped.domain.DomainService;
         @ComponentScan.Filter(
             type = FilterType.ANNOTATION,
             classes = {DomainService.class}))
-public class StampedApplication {
+public class Application {
 
   public static void main(String[] args) {
-    SpringApplication.run(StampedApplication.class, args);
+    SpringApplication.run(Application.class, args);
   }
 }

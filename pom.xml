@@ -41,6 +41,7 @@
 		<spotless-maven-plugin.version>2.44.5</spotless-maven-plugin.version>
 		<git-build-hook-maven-plugin.version>3.4.1</git-build-hook-maven-plugin.version>
 		<google-formatter.version>1.27.0</google-formatter.version>
+		<rest-assured.version>5.5.5</rest-assured.version>
 	</properties>
 
 	<dependencies>
@@ -90,6 +91,12 @@
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>postgresql</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${rest-assured.version}</version>
 			<scope>test</scope>
 		</dependency>
 
