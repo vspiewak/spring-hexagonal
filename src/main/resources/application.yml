@@ -1,12 +1,12 @@
 spring:
   application:
-    name: stamped
+    name: hexagonal
   mvc:
     problemdetails:
       enabled: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/stamped
+    url: jdbc:postgresql://localhost:5432/hexagonal
     username: postgres
     password: postgres
   liquibase:
@@ -23,5 +23,5 @@ management:
 logging:
   level:
     root: INFO
-    com.vspiewak.stamped: DEBUG
+    com.vspiewak.hexagonal: DEBUG
     org.springframework.web: DEBUG

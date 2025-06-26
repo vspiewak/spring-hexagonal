@@ -1,4 +1,4 @@
-# Stamped
+# Spring Hexagonal Architecture
 
 A Hexagonal Architecture REST API Boilerplate built with Spring Boot 3
 

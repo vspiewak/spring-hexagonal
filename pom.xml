@@ -10,11 +10,11 @@
 	</parent>
 
 	<groupId>com.vspiewak</groupId>
-	<artifactId>spring-stamped</artifactId>
+	<artifactId>spring-hexagonal</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>spring-stamped</name>
-	<description>Spring Stamped</description>
+	<name>spring-hexagonal</name>
+	<description>Spring Hexagonal</description>
 
 	<developers>
 		<developer>
@@ -215,8 +215,8 @@
 						<configuration>
 							<inputSpec>${project.basedir}/src/main/resources/openapi/api.yml</inputSpec>
 							<generatorName>spring</generatorName>
-							<apiPackage>com.vspiewak.stamped.contract.api</apiPackage>
-							<modelPackage>com.vspiewak.stamped.contract.model</modelPackage>
+							<apiPackage>com.vspiewak.hexagonal.contract.api</apiPackage>
+							<modelPackage>com.vspiewak.hexagonal.contract.model</modelPackage>
 							<supportingFilesToGenerate>
 								ApiUtil.java
 							</supportingFilesToGenerate>
