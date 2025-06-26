@@ -26,7 +26,8 @@ A Hexagonal Architecture REST API Boilerplate built with Spring Boot 3
 
 ### 🚀 Run 
     
-    ./mvnw clean sprint-boot:run
+    docker-compose up -d
+    ./mvnw clean spring-boot:run
 
 ### ⚡️ Run with samples data
   
