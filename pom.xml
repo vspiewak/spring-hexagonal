@@ -16,22 +16,11 @@
 	<name>spring-stamped</name>
 	<description>Spring Stamped</description>
 
-	<url/>
-
-	<licenses>
-		<license/>
-	</licenses>
-
 	<developers>
-		<developer/>
+		<developer>
+			<id>vspiewak</id>
+		</developer>
 	</developers>
-
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
 
 	<properties>
 		<java.version>24</java.version>
@@ -42,6 +31,8 @@
 		<git-build-hook-maven-plugin.version>3.4.1</git-build-hook-maven-plugin.version>
 		<google-formatter.version>1.27.0</google-formatter.version>
 		<rest-assured.version>5.5.5</rest-assured.version>
+		<archunit-junit5.version>1.4.1</archunit-junit5.version>
+		<cucumber.version>7.23.0</cucumber.version>
 	</properties>
 
 	<dependencies>
@@ -94,9 +85,33 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit-junit5</artifactId>
+			<version>${archunit-junit5.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>${rest-assured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-spring</artifactId>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -130,7 +145,7 @@
 						</includes>
 						<googleJavaFormat>
 							<version>${google-formatter.version}</version>
-							<style>GOOGLE</style>
+							<style>AOSP</style>
 							<formatJavadoc>true</formatJavadoc>
 						</googleJavaFormat>
 						<removeUnusedImports />
@@ -212,6 +227,25 @@
 								<openApiNullable>false</openApiNullable>
 							</configOptions>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.13</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>

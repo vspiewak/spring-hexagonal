@@ -1,4 +1,4 @@
-package com.vspiewak.stamped.domain;
+package com.vspiewak.stamped.domain.model;
 
 import java.util.UUID;
 
