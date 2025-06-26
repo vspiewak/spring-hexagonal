@@ -20,22 +20,22 @@ A Hexagonal Architecture REST API Boilerplate built with Spring Boot 3
 
 ## 🛠️ Commands
 
-### 🎨 format code
+### 🎨 Format code
 
     ./mvnw spotless:apply
 
-### 🚀 run 
+### 🚀 Run 
     
     ./mvnw clean sprint-boot:run
 
-### ⚡️ run with samples data
+### ⚡️ Run with samples data
   
     ./mvnw clean spring-boot:run -Dspring-boot.run.profiles=with-samples
 
-### 🧪 test
+### 🧪 Launch Tests
 
     ./mvnw clean test
 
-### 📊 jacoco report
+### 📊 Jacoco report
     
     ./mvnw clean jacoco:report
