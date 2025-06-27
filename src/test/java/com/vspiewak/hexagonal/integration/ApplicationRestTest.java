@@ -37,7 +37,7 @@ public class ApplicationRestTest {
     }
 
     @Test
-    void shouldReturnUserById() {
+    void should_return_user_by_id() {
 
         var user = new UserEntity();
         user.setUsername("username");
@@ -53,7 +53,7 @@ public class ApplicationRestTest {
     }
 
     @Test
-    void shouldReturnUserNotFound() {
+    void should_return_user_not_found() {
 
         var uuid = UUID.randomUUID();
 

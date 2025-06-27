@@ -26,17 +26,17 @@ class ApplicationTest {
     }
 
     @Test
-    void shouldLoadContext(ApplicationContext context) {
+    void should_load_context(ApplicationContext context) {
         assertThat(context).isNotNull();
     }
 
     @Test
-    void shouldLoadJpa() {
+    void should_load_jpa() {
         assertThat(userRepository).isNotNull();
     }
 
     @Test
-    void shouldFindById() {
+    void should_find_by_id() {
 
         var user = new UserEntity();
         user.setUsername("test");

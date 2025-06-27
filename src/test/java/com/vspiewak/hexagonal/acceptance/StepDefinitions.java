@@ -18,7 +18,7 @@ public class StepDefinitions {
     @LocalServerPort private Integer port;
 
     @When("the client make a GET on {word}")
-    public void the_client_make_an_http_request(String endpoint) {
+    public void the_client_make_a_get_request_on(String endpoint) {
         RestAssured.port = port;
         response = when().get(endpoint);
     }
