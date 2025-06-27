@@ -47,7 +47,8 @@ public class ApplicationRestTest {
 
         when().get("/users/{id}", uuid)
                 .then()
-                .statusCode(200)
+                .statusCode(HttpStatus.OK.value())
+                .body("id", equalTo(uuid.toString()))
                 .body("username", equalTo(user.getUsername()));
     }
 
