@@ -37,6 +37,6 @@ A Hexagonal Architecture REST API Boilerplate built with Spring Boot 3
 
     ./mvnw clean test
 
-### 📊 Jacoco report
+### 📊 Coverage
     
     ./mvnw clean jacoco:report
